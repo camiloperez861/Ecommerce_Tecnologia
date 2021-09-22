@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
+from Servicios.models import Musico
 
 # Create your views here.
 #logica del backend
@@ -12,5 +12,7 @@ def vistaEjemplo(request):
     #post -> envio de informaion del usuario al servidor(aplicacion web)
     #Put-Patch-Delete
 
-    return HttpResponse("Estas en la aplicacion de Servicios")
+    Juanes=Musico.objects.get(nombreArtistico="Juanes")
+
+    return HttpResponse("Estas en la aplicacion de Servicios " + Juanes.nombreArtistico)
 

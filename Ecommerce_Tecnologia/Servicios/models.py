@@ -34,7 +34,7 @@ class Musico (models.Model):
 
 
 class Album(models.Model):
-    musico=models.ForeignKey(Musico, on_delete=models.CASCADE)
+    musico=models.ForeignKey(Musico, on_delete=models.CASCADE) #Establece conexion entre la tbla SQL 'Album' y la tabla 'Musico'
     nombre=models.CharField(max_length=100)
     caratula=models.ImageField(null=True,blank=True)
     fechaCreacion=models.DateField(null=True,blank=True)
@@ -60,6 +60,8 @@ Create table Servicios_Musico(
     nombre Varchar(100) not null 
 );
 """
+
+
 """
 SHELL -> Permite ejecutar codigo Python del poryecto Django
     python manage.py shell
@@ -68,5 +70,24 @@ SHELL -> Permite ejecutar codigo Python del poryecto Django
     -Probar codigo CRUD
     -Probar la logica de un algoritmo
     Sistema de depuracion de codigo
+
+    from Servicios.models import *
+
+    #Obtener informacion
+    musicos=Musico.objects.all()  -> Obtener todos los registros de la tabla 'Musico' en base de datos 
+    Juanes= Musico.objects.get(nombreArtistico="Juanes")  get-> esperamos como respuesta un objeto
+
+    albumesJuanes=Album.objects.filter(musico=Juanes) -> filter -> esperamos multiples objetos
+    
+
+    #Crear un nuevo musico
+    Shakira=Musico.objects.create(nombreArtistico="Shakira")
+
+    #Crear nuevo Album
+    nuevoAlbum= Album.objects.create(musico=Juanes,nombre="Ordinario")
 """
+
+
+
+
 

@@ -9,3 +9,5 @@ urlpatterns = [
     path('ejemplo', vistaEjemplo  ),
     
 ]
+
+#localhost:8000/servicios/ ->Ubicacion local de servicios
